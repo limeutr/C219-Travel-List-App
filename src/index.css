@@ -13,7 +13,7 @@ html {
 body {
   font-size: 2.4rem;
   font-family: sans-serif;
-  color: #5a3e2b;
+  color: #8e4270;
   font-family: "Quicksand";
   font-weight: 500;
 }
@@ -27,7 +27,7 @@ body {
 
 h1 {
   text-align: center;
-  background-color: #f4a226;
+  background-color: #fdcdcd;
   font-family: "Monoton";
   font-size: 8rem;
   text-transform: uppercase;
@@ -38,7 +38,7 @@ h1 {
 }
 
 .add-form {
-  background-color: #e5771f;
+  background-color: #ffacd8;
   padding: 2.8rem 0;
   display: flex;
   align-items: center;
@@ -67,11 +67,11 @@ input {
 
 .add-form button {
   text-transform: uppercase;
-  background-color: #76c7ad;
+  background-color: #ffe3a8;
 }
 
 .list {
-  background-color: #5a3e2b;
+  background-color: #e2a5b0;
   color: #ffebb3;
   padding: 4rem 0;
 
@@ -125,7 +125,7 @@ input[type="checkbox"] {
 }
 
 .stats {
-  background-color: #76c7ad;
+  background-color: #ddfdfe;
   text-align: center;
   font-weight: 700;
   padding: 3.2rem 0;

@@ -131,7 +131,7 @@ function Item({ item, handleTogglePacked, handleDeleteItem }) {
         }}
         style={{
           color: "gold",
-          fontSize: "25px", // Corrected to include 'px'
+          fontSize: "25px", 
           marginLeft: "10px", // Space between text and delete button
           cursor: "pointer", // Indicate that the button is clickable
         }}
