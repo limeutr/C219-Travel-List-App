@@ -2,9 +2,13 @@ import React, { useState } from "react";
 
 // Initial packing items
 const initialItems = [
-  { id: 1, description: "Shirt", quantity: 5, packed: true },
-  { id: 2, description: "Pants", quantity: 2, packed: false },
-  { id: 3, description: "Jacket", quantity: 1, packed: false },
+  { id: 1, description: "Shirt", quantity: 5, packed: false },
+  { id: 2, description: "Pants", quantity: 5, packed: false },
+  { id: 3, description: "Charger set", quantity: 1, packed: false },
+  { id: 4, description: "Pyjamas", quantity: 4, packed: false },
+  {id: 5, description: "Shoes", quantity: 2, packed: false},
+  {id:6, description: "Slippers", quantity: 1, packed: false},
+  {id:7, description: "Sunscreen", quantity: 1, packed: false},
 ];
 
 function Logo() {
@@ -107,13 +111,18 @@ function PackingList({ items, handleTogglePacked, handleDeleteItem }) {
 function Item({ item, handleTogglePacked, handleDeleteItem }) {
   return (
     <li
-      onClick={() => handleTogglePacked(item.id)}
       style={{
-        textDecoration: item.packed ? "line-through" : "none",
-        cursor: "pointer", // Make it visually clear that it's clickable
+        cursor: "pointer", // Make the list item visually clickable
       }}
     >
-      {item.description} ({item.quantity})
+      <span
+        onClick={() => handleTogglePacked(item.id)} // Toggle packed on click
+        style={{
+          textDecoration: item.packed ? "line-through" : "none", // Apply strike-through only to this span
+        }}
+      >
+        {item.description} ({item.quantity})
+      </span>
 
       <button
         onClick={(e) => {
@@ -122,8 +131,9 @@ function Item({ item, handleTogglePacked, handleDeleteItem }) {
         }}
         style={{
           color: "gold",
-          fontSize: "25",
+          fontSize: "25px", // Corrected to include 'px'
           marginLeft: "10px", // Space between text and delete button
+          cursor: "pointer", // Indicate that the button is clickable
         }}
       >
         ✘
@@ -131,6 +141,7 @@ function Item({ item, handleTogglePacked, handleDeleteItem }) {
     </li>
   );
 }
+
 
 
 function Stats({ items }) {
