@@ -29,6 +29,8 @@ function Form({ handleAddItems }) {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (!description.trim()) return; // Prevent empty items
+
     const newItem = {
       id: Date.now(), // Unique ID based on timestamp
       description,
@@ -84,24 +86,54 @@ function PackingList({ items, handleTogglePacked, handleDeleteItem }) {
   );
 }
 
+// function Item({ item, handleTogglePacked, handleDeleteItem }) {
+//   return (
+//     <li
+//       onClick={() => handleTogglePacked(item.id)} // Toggle packed on click
+//       style={{
+//         textDecoration: item.packed ? "line-through" : "none",
+//         cursor: "pointer", // Make it visually clear that it's clickable
+//       }}
+//     >
+//       {item.description} ({item.quantity})
+//       <button onClick={(e) => {
+//         e.stopPropagation(); // Prevent marking packed when deleting
+//         handleDeleteItem(item.id);
+//       }}>Delete</button>
+//     </li>
+//   );
+// }
+
 function Item({ item, handleTogglePacked, handleDeleteItem }) {
   return (
     <li
+      onClick={() => handleTogglePacked(item.id)}
       style={{
         textDecoration: item.packed ? "line-through" : "none",
+        cursor: "pointer", // Make it visually clear that it's clickable
       }}
     >
-      <input
-        type="checkbox"
-        checked={item.packed}
-        onChange={() => handleTogglePacked(item.id)} // Toggle packed status
-      />
       {item.description} ({item.quantity})
 
-      <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation(); // Prevent marking packed when deleting
+          handleDeleteItem(item.id); // Call delete handler
+        }}
+        style={{
+          background: "none",
+          border: "none",
+          color: "gold",
+          fontSize: "25",
+          marginLeft: "10px", // Space between text and delete button
+        }}
+      >
+        ✘
+      </button>
     </li>
   );
 }
+
 
 function Stats({ items }) {
   const totalItems = items.length;
