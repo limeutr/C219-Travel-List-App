@@ -121,8 +121,6 @@ function Item({ item, handleTogglePacked, handleDeleteItem }) {
           handleDeleteItem(item.id); // Call delete handler
         }}
         style={{
-          background: "none",
-          border: "none",
           color: "gold",
           fontSize: "25",
           marginLeft: "10px", // Space between text and delete button
